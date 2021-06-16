@@ -3,7 +3,7 @@
 
 ## Integrantes
 - Moralez, Ulises [@ulimoralez](https://github.com/ulimoralez)
-- Alonso, Manuel
+- Alonso, Manuel [@manuelalonso92](https://github.com/manuelalonso92)
 - Chichari, Luciano
 - Sanchez, Pablo
 - Burich, Juan [@jburich13](https://github.com/jburich13)
