@@ -24,12 +24,13 @@ namespace FileManagerProgIII
         #region Código generado por el Diseñador de Windows Forms
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.goButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.pathBox = new System.Windows.Forms.TextBox();
@@ -60,6 +61,7 @@ namespace FileManagerProgIII
             this.backButton.TabIndex = 1;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // pathBox
             // 
@@ -80,12 +82,20 @@ namespace FileManagerProgIII
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // IconList
             // 
-            this.IconList.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.IconList.ImageSize = new System.Drawing.Size(48, 48);
+            this.IconList.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("IconList.ImageStream")));
             this.IconList.TransparentColor = System.Drawing.Color.Transparent;
+            this.IconList.Images.SetKeyName(0, "unknown-folder.png");
+            this.IconList.Images.SetKeyName(1, "rar-file-format.png");
+            this.IconList.Images.SetKeyName(2, "pdf-file.png");
+            this.IconList.Images.SetKeyName(3, "docx-file.png");
+            this.IconList.Images.SetKeyName(4, "video.png");
+            this.IconList.Images.SetKeyName(5, "mp3.png");
+            this.IconList.Images.SetKeyName(6, "exe-file.png");
+            this.IconList.Images.SetKeyName(7, "folder.png");
             // 
             // fileNameLabel
             // 
@@ -141,7 +151,6 @@ namespace FileManagerProgIII
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

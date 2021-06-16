@@ -8,3 +8,13 @@ D:\Documentos\FileManagerProgIII\obj\Debug\FileManagerProgIII.csproj.GenerateRes
 D:\Documentos\FileManagerProgIII\obj\Debug\FileManagerProgIII.csproj.CoreCompileInputs.cache
 D:\Documentos\FileManagerProgIII\obj\Debug\FileManagerProgIII.exe
 D:\Documentos\FileManagerProgIII\obj\Debug\FileManagerProgIII.pdb
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\bin\Debug\FileManagerProgIII.exe.config
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\bin\Debug\FileManagerProgIII.exe
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\bin\Debug\FileManagerProgIII.pdb
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.csprojAssemblyReference.cache
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.Form1.resources
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.Properties.Resources.resources
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.csproj.GenerateResource.cache
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.csproj.CoreCompileInputs.cache
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.exe
+C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.pdb
