@@ -53,6 +53,7 @@ namespace FileManagerProgIII
                     fileName.Text = detallesArch.Name; //Se setea el nombre del archivo
                     fileType.Text = detallesArch.Extension; //Se setea la extension
                     archAttr = File.GetAttributes(tempPathArch); //Se guardan los atributos
+                    Process.Start(tempPathArch);
                 }
                 else
                 {
@@ -64,10 +65,50 @@ namespace FileManagerProgIII
                     listaArch = new DirectoryInfo(filePath); 
                     FileInfo[] archivos = listaArch.GetFiles(); //se traen los archivos
                     DirectoryInfo[] carpetas = listaArch.GetDirectories(); //Se traen las carpetas
+                    string fileExtension = "";
                     listView1.Items.Clear(); //Se limpia lo que estaba antes
                     for (int i = 0; i < archivos.Length; i++)
                     {
-                        listView1.Items.Add(archivos[i].Name,0); //Se agrega los archivos
+                        
+                        fileExtension = archivos[i].Extension.ToUpper();
+                        switch(fileExtension)
+                        {
+                            case ".MP3":
+                            case ".MP2":
+                                listView1.Items.Add(archivos[i].Name, 5);
+                                break;
+                            case ".EXE":
+                            case ".COM":
+                                listView1.Items.Add(archivos[i].Name, 6);
+                                break;
+
+                            case ".MP4":
+                            case ".AVI":
+                            case ".MKV":
+                                listView1.Items.Add(archivos[i].Name, 4);
+                                break;
+                            case ".PDF":
+                                listView1.Items.Add(archivos[i].Name, 2);
+                                break;
+                            case ".DOC":
+                            case ".DOCX":
+                                listView1.Items.Add(archivos[i].Name, 3);
+                                break;
+                            case ".PNG":
+                            case ".JPG":
+                            case ".JPEG":
+                                listView1.Items.Add(archivos[i].Name, 8);
+                                break;
+                            case".RAR":
+                                listView1.Items.Add(archivos[i].Name, 1);
+                                break;
+                            case".TXT":
+                                listView1.Items.Add(archivos[i].Name, 9);
+                                break;
+                            default:
+                                listView1.Items.Add(archivos[i].Name, 8);
+                                break;
+                        }
                     }
 
                     for (int i = 0; i < carpetas.Length; i++)
@@ -129,6 +170,7 @@ namespace FileManagerProgIII
             {
 
             }
+            cargar();
         }
     }
 }

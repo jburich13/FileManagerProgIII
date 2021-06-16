@@ -96,6 +96,8 @@ namespace FileManagerProgIII
             this.IconList.Images.SetKeyName(5, "mp3.png");
             this.IconList.Images.SetKeyName(6, "exe-file.png");
             this.IconList.Images.SetKeyName(7, "folder.png");
+            this.IconList.Images.SetKeyName(8, "image.png");
+            this.IconList.Images.SetKeyName(9, "txt-file.png");
             // 
             // fileNameLabel
             // 
