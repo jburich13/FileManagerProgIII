@@ -42,11 +42,11 @@ namespace FileManagerProgIII
 
         public void agregarDireccionAlPath()
         {
-            pathArchivo = pathArchivo + textBoxDireccion.Text + @"\";
+            pathArchivo = pathArchivo + textBoxDireccion.Text;
         }
         public void agregarNombreDelArchivoAlPath()
         {
-            pathArchivo = pathArchivo + textBoxNombreDelArchivo.Text;
+            pathArchivo = pathArchivo+ @"\" + textBoxNombreDelArchivo.Text;
 
         }
         public void agregarExtensionAlPath()

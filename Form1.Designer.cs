@@ -70,6 +70,7 @@ namespace FileManagerProgIII
             this.pathBox.Name = "pathBox";
             this.pathBox.Size = new System.Drawing.Size(951, 20);
             this.pathBox.TabIndex = 2;
+            this.pathBox.TextChanged += new System.EventHandler(this.pathBox_TextChanged);
             // 
             // listView1
             // 

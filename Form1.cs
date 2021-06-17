@@ -178,5 +178,10 @@ namespace FileManagerProgIII
             CrearArchivos crearArchivos = new CrearArchivos();
             crearArchivos.ShowDialog();
         }
+
+        private void pathBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
