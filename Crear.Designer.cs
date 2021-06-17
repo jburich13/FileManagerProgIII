@@ -134,13 +134,6 @@ namespace FileManagerProgIII
             // comboBox_disco
             // 
             this.comboBox_disco.FormattingEnabled = true;
-            this.comboBox_disco.Items.AddRange(new object[] {
-            "C:/",
-            "D:/",
-            "E:/",
-            "F:/",
-            "G:/",
-            "H:/"});
             this.comboBox_disco.Location = new System.Drawing.Point(154, 96);
             this.comboBox_disco.Name = "comboBox_disco";
             this.comboBox_disco.Size = new System.Drawing.Size(54, 21);
@@ -182,6 +175,7 @@ namespace FileManagerProgIII
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Crear";
             this.Text = "Crear Archivo";
+            this.Load += new System.EventHandler(this.Crear_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

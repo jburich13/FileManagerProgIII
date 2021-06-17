@@ -62,5 +62,18 @@ namespace FileManagerProgIII
         {
             this.Close();
         }
+        public void cargarDiscos()
+        {
+            DriveInfo[] discosInfo = DriveInfo.GetDrives();
+            foreach (DriveInfo d in discosInfo)
+            {
+                comboBox_disco.Items.Add(d.Name);
+            }
+        }
+
+        private void Crear_Load(object sender, EventArgs e)
+        {
+            cargarDiscos();
+        }
     }
 }
