@@ -40,6 +40,15 @@ namespace FileManagerProgIII
             this.fileTypeLabel = new System.Windows.Forms.Label();
             this.fileName = new System.Windows.Forms.Label();
             this.fileType = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.directorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // goButton
@@ -65,7 +74,7 @@ namespace FileManagerProgIII
             // 
             // pathBox
             // 
-            this.pathBox.Location = new System.Drawing.Point(93, 58);
+            this.pathBox.Location = new System.Drawing.Point(93, 57);
             this.pathBox.Name = "pathBox";
             this.pathBox.Size = new System.Drawing.Size(951, 20);
             this.pathBox.TabIndex = 2;
@@ -86,7 +95,7 @@ namespace FileManagerProgIII
             // 
             // IconList
             // 
-            this.IconList.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("IconList.ImageStream")));
+            this.IconList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconList.ImageStream")));
             this.IconList.TransparentColor = System.Drawing.Color.Transparent;
             this.IconList.Images.SetKeyName(0, "unknown-folder.png");
             this.IconList.Images.SetKeyName(1, "rar-file-format.png");
@@ -135,11 +144,70 @@ namespace FileManagerProgIII
             this.fileType.TabIndex = 7;
             this.fileType.Text = "--";
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1137, 25);
+            this.toolStrip1.TabIndex = 9;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearToolStripMenuItem,
+            this.informacionToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(61, 22);
+            this.toolStripDropDownButton1.Text = "Archivo";
+            // 
+            // crearToolStripMenuItem
+            // 
+            this.crearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.directorioToolStripMenuItem});
+            this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearToolStripMenuItem.Text = "Crear";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click);
+            // 
+            // directorioToolStripMenuItem
+            // 
+            this.directorioToolStripMenuItem.Name = "directorioToolStripMenuItem";
+            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.directorioToolStripMenuItem.Text = "Directorio";
+            this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click);
+            // 
+            // informacionToolStripMenuItem
+            // 
+            this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
+            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.informacionToolStripMenuItem.Text = "Informacion";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 620);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.fileType);
             this.Controls.Add(this.fileName);
             this.Controls.Add(this.fileTypeLabel);
@@ -151,8 +219,11 @@ namespace FileManagerProgIII
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -166,6 +237,14 @@ namespace FileManagerProgIII
         private System.Windows.Forms.Label fileName;
         private System.Windows.Forms.Label fileType;
         private System.Windows.Forms.ImageList IconList;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem directorioToolStripMenuItem;
     }
 }
 
