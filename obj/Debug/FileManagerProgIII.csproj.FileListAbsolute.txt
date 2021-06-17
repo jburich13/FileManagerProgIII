@@ -18,3 +18,4 @@ C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgI
 C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.csproj.CoreCompileInputs.cache
 C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.exe
 C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\obj\Debug\FileManagerProgIII.pdb
+D:\Documentos\FileManagerProgIII\obj\Debug\FileManagerProgIII.CrearArchivos.resources

@@ -40,6 +40,7 @@ namespace FileManagerProgIII
             this.fileTypeLabel = new System.Windows.Forms.Label();
             this.fileName = new System.Windows.Forms.Label();
             this.fileType = new System.Windows.Forms.Label();
+            this.buttonCrearArchivo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // goButton
@@ -86,7 +87,7 @@ namespace FileManagerProgIII
             // 
             // IconList
             // 
-            this.IconList.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("IconList.ImageStream")));
+            this.IconList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconList.ImageStream")));
             this.IconList.TransparentColor = System.Drawing.Color.Transparent;
             this.IconList.Images.SetKeyName(0, "unknown-folder.png");
             this.IconList.Images.SetKeyName(1, "rar-file-format.png");
@@ -135,11 +136,22 @@ namespace FileManagerProgIII
             this.fileType.TabIndex = 7;
             this.fileType.Text = "--";
             // 
+            // buttonCrearArchivo
+            // 
+            this.buttonCrearArchivo.Location = new System.Drawing.Point(13, 24);
+            this.buttonCrearArchivo.Name = "buttonCrearArchivo";
+            this.buttonCrearArchivo.Size = new System.Drawing.Size(107, 23);
+            this.buttonCrearArchivo.TabIndex = 8;
+            this.buttonCrearArchivo.Text = "Crear Archivo";
+            this.buttonCrearArchivo.UseVisualStyleBackColor = true;
+            this.buttonCrearArchivo.Click += new System.EventHandler(this.buttonCrearArchivo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1137, 620);
+            this.Controls.Add(this.buttonCrearArchivo);
             this.Controls.Add(this.fileType);
             this.Controls.Add(this.fileName);
             this.Controls.Add(this.fileTypeLabel);
@@ -153,6 +165,7 @@ namespace FileManagerProgIII
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -166,6 +179,7 @@ namespace FileManagerProgIII
         private System.Windows.Forms.Label fileName;
         private System.Windows.Forms.Label fileType;
         private System.Windows.Forms.ImageList IconList;
+        private System.Windows.Forms.Button buttonCrearArchivo;
     }
 }
 

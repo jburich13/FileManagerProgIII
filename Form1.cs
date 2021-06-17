@@ -172,5 +172,11 @@ namespace FileManagerProgIII
             }
             cargar();
         }
+
+        private void buttonCrearArchivo_Click(object sender, EventArgs e)
+        {
+            CrearArchivos crearArchivos = new CrearArchivos();
+            crearArchivos.ShowDialog();
+        }
     }
 }
