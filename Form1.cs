@@ -15,7 +15,7 @@ namespace FileManagerProgIII
     public partial class Form1 : Form
     {
         //VARIABLES
-        private string filePath = "D:/"; //el path de busqueda
+        private string filePath = "C:/"; //el path de busqueda
         private bool esArch = false; //para saber si es carpeta o arch
         private string elemSeleccionado = ""; //Guarda el nombre del elem seleccionado
         public Form1()
@@ -183,6 +183,12 @@ namespace FileManagerProgIII
         }
 
         private void directorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CrearDir win = new CrearDir();
+            win.ShowDialog();
+        }
+
+        private void pathBox_TextChanged(object sender, EventArgs e)
         {
 
         }

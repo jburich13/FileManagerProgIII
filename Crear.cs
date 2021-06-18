@@ -75,5 +75,20 @@ namespace FileManagerProgIII
         {
             cargarDiscos();
         }
+
+        private void textBox_direccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_nombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
