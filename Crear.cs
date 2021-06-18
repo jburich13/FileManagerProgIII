@@ -13,26 +13,25 @@ namespace FileManagerProgIII
 {
     public partial class Crear : Form
     {
+        private string direccion = "";
         public Crear()
         {
             InitializeComponent();
         }
-
+        public Crear(string dir)
+        {
+            direccion = dir;
+            InitializeComponent();
+        }
 
         //creacion del archivo
         private void button1_Click(object sender, EventArgs e)
         {
-            String nombreArchivo, direccionArchivo, extesionArchivo, discoArchivo;
-            discoArchivo = "";extesionArchivo = "";
+            String nombreArchivo, direccionArchivo, extesionArchivo;
+            
+            extesionArchivo = "";
             Boolean correcto = false;
-            if (comboBox_disco.SelectedIndex != -1)
-            {
-                discoArchivo = comboBox_disco.Items[comboBox_disco.SelectedIndex].ToString();
-                correcto = true;
-            }else
-            {
-                MessageBox.Show("No ha Seleccionado un Disco!");
-            }
+            
             if (comboBox_extension.SelectedIndex != -1)
             {
                 extesionArchivo = comboBox_extension.Items[comboBox_extension.SelectedIndex].ToString();
@@ -48,7 +47,7 @@ namespace FileManagerProgIII
             if (correcto)
             {
                 //REALIZAR LA CREACION DEL ARCHIVO
-                string dir = discoArchivo+direccionArchivo+"/"+nombreArchivo+extesionArchivo;
+                string dir = direccionArchivo+"/"+nombreArchivo+extesionArchivo;
                 File.Create(dir);
                 this.Close();
             }
@@ -62,18 +61,26 @@ namespace FileManagerProgIII
         {
             this.Close();
         }
-        public void cargarDiscos()
-        {
-            DriveInfo[] discosInfo = DriveInfo.GetDrives();
-            foreach (DriveInfo d in discosInfo)
-            {
-                comboBox_disco.Items.Add(d.Name);
-            }
-        }
+        
 
         private void Crear_Load(object sender, EventArgs e)
         {
-            cargarDiscos();
+            textBox_direccion.Text = direccion;            
+        }
+
+        private void textBox_direccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_nombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
