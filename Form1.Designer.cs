@@ -233,6 +233,11 @@ namespace FileManagerProgIII
         private System.Windows.Forms.Button goButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.TextBox pathBox;
+        public string getPathBox()
+        {
+            return this.pathBox.Text;
+        }
+
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label fileNameLabel;
         private System.Windows.Forms.Label fileTypeLabel;
