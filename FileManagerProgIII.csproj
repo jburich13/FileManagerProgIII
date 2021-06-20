@@ -49,9 +49,7 @@
     <Compile Include="CrearArchivos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearArchivos.Designer.cs">
-      <DependentUpon>CrearArchivos.cs</DependentUpon>
-    </Compile>
+    <Compile Include="CrearArchivos.Designer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,9 +58,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CrearArchivos.resx">
-      <DependentUpon>CrearArchivos.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="CrearArchivos.resx" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
