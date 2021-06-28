@@ -15,20 +15,35 @@ namespace FileManagerProgIII
     public partial class Form1 : Form
     {
         //VARIABLES
-        private string filePath = "D:"; //el path de busqueda
+        private string filePath = "D:/"; //el path de busqueda
         private bool esArch = false; //para saber si es carpeta o arch
         private string elemSeleccionado = ""; //Guarda el nombre del elem seleccionado
         public Form1()
         {
             InitializeComponent();
+            this.treeView1.NodeMouseClick +=
+                new TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            PopulateTreeView();
             pathBox.Text = filePath; //pone el texto del path en el TextBox
             cargarArchivosyCarpetas(); //Funcion que carga los archivos y las carpetas
 
+        }
+        private void BuildTree(DirectoryInfo directoryInfo, TreeNodeCollection addInMe)
+        {
+            TreeNode curNode = addInMe.Add(directoryInfo.Name);
+
+            foreach (FileInfo file in directoryInfo.GetFiles())
+            {
+                curNode.Nodes.Add(file.FullName, file.Name);
+            }
+            foreach (DirectoryInfo subdir in directoryInfo.GetDirectories())
+            {
+                BuildTree(subdir, curNode.Nodes);
+            }
         }
 
         public void cargar()
@@ -36,7 +51,6 @@ namespace FileManagerProgIII
             filePath = pathBox.Text;
             cargarArchivosyCarpetas();
             esArch = false;
-
         }
 
         public void cargarArchivosyCarpetas()
@@ -50,8 +64,6 @@ namespace FileManagerProgIII
                 {
                     tempPathArch = filePath + "/" + elemSeleccionado; //Se toma la ruta completa
                     FileInfo detallesArch = new FileInfo(tempPathArch); //Se crea un FileInfo para tener los detalles
-                    fileName.Text = detallesArch.Name; //Se setea el nombre del archivo
-                    fileType.Text = detallesArch.Extension; //Se setea la extension
                     archAttr = File.GetAttributes(tempPathArch); //Se guardan los atributos
                     Process.Start(tempPathArch);
                 }
@@ -118,7 +130,7 @@ namespace FileManagerProgIII
                 }
                 else
                 {
-                    fileName.Text = this.elemSeleccionado;
+                    
                 }
             }
             catch (Exception e)
@@ -172,16 +184,98 @@ namespace FileManagerProgIII
             }
             cargar();
         }
+                
 
-        private void buttonCrearArchivo_Click(object sender, EventArgs e)
+        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CrearArchivos crearArchivos = new CrearArchivos();
-            crearArchivos.ShowDialog();
+            String nombre = "";
+            //FileInfo nuevo = new FileInfo(nombre);
+            Crear ventana = new Crear();
+            ventana.ShowDialog();
         }
 
-        private void pathBox_TextChanged(object sender, EventArgs e)
+        private void directorioToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+        
+        void treeView1_NodeMouseClick(object sender,
+            TreeNodeMouseClickEventArgs e)
+        {
+            TreeNode newSelected = e.Node;
+            pathBox.Text = newSelected.FullPath;
+            cargar();
+            listView2.Items.Clear();
+            DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
+            ListViewItem.ListViewSubItem[] subItems;
+            ListViewItem item = null;
+
+            foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
+            {
+                item = new ListViewItem(dir.Name, 0);
+                subItems = new ListViewItem.ListViewSubItem[]
+                {new ListViewItem.ListViewSubItem(item, "Directory"),
+                    new ListViewItem.ListViewSubItem(item,
+                        dir.LastAccessTime.ToShortDateString())};
+                item.SubItems.AddRange(subItems);
+                listView2.Items.Add(item);
+            }
+            foreach (FileInfo file in nodeDirInfo.GetFiles())
+            {
+                item = new ListViewItem(file.Name, 1);
+                subItems = new ListViewItem.ListViewSubItem[]
+                { new ListViewItem.ListViewSubItem(item, "File"),
+                    new ListViewItem.ListViewSubItem(item,
+                        file.LastAccessTime.ToShortDateString())};
+
+                item.SubItems.AddRange(subItems);
+                listView2.Items.Add(item);
+            }
+
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+        private void PopulateTreeView()
+        {
+            TreeNode rootNode;
+    
+            DirectoryInfo info = new DirectoryInfo(@"C:\");
+            if (info.Exists)
+            {
+                rootNode = new TreeNode(info.Name);
+                rootNode.Tag = info;
+                GetDirectories(info.GetDirectories(), rootNode);
+                treeView1.Nodes.Add(rootNode);
+            }
+        }
+
+        private void GetDirectories(DirectoryInfo[] subDirs,
+            TreeNode nodeToAddTo)
+        {
+            TreeNode aNode;
+            DirectoryInfo[] subSubDirs;
+            foreach (DirectoryInfo subDir in subDirs)
+            {
+                aNode = new TreeNode(subDir.Name, 1, 0);
+                aNode.Tag = subDir;
+                aNode.ImageKey = "folder";
+                
+                subSubDirs = subDir.GetDirectories();
+                if (subSubDirs.Length != 0)
+                {
+                    GetDirectories(subSubDirs, aNode);
+                }
+                nodeToAddTo.Nodes.Add(aNode);
+            }
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+           
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
