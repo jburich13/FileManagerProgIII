@@ -37,7 +37,8 @@ namespace FileManagerProgIII
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
@@ -70,30 +71,61 @@ namespace FileManagerProgIII
             // 
             this.IconList.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("IconList.ImageStream")));
             this.IconList.TransparentColor = System.Drawing.Color.Transparent;
-            this.IconList.Images.SetKeyName(0, "unknown-folder.png");
-            this.IconList.Images.SetKeyName(1, "rar-file-format.png");
-            this.IconList.Images.SetKeyName(2, "pdf-file.png");
-            this.IconList.Images.SetKeyName(3, "docx-file.png");
-            this.IconList.Images.SetKeyName(4, "video.png");
-            this.IconList.Images.SetKeyName(5, "mp3.png");
-            this.IconList.Images.SetKeyName(6, "exe-file.png");
-            this.IconList.Images.SetKeyName(7, "folder.png");
-            this.IconList.Images.SetKeyName(8, "image.png");
-            this.IconList.Images.SetKeyName(9, "txt-file.png");
+            this.IconList.Images.SetKeyName(0, "mxf.png");
+            this.IconList.Images.SetKeyName(1, "mdf.png");
+            this.IconList.Images.SetKeyName(2, "nrg.png");
+            this.IconList.Images.SetKeyName(3, "arj.png");
+            this.IconList.Images.SetKeyName(4, "mp2.png");
+            this.IconList.Images.SetKeyName(5, "fla.png");
+            this.IconList.Images.SetKeyName(6, "wma.png");
+            this.IconList.Images.SetKeyName(7, "rtf.png");
+            this.IconList.Images.SetKeyName(8, "aac.png");
+            this.IconList.Images.SetKeyName(9, "flac.png");
+            this.IconList.Images.SetKeyName(10, "svg.png");
+            this.IconList.Images.SetKeyName(11, "wav.png");
+            this.IconList.Images.SetKeyName(12, "ai.png");
+            this.IconList.Images.SetKeyName(13, "avi.png");
+            this.IconList.Images.SetKeyName(14, "dbf.png");
+            this.IconList.Images.SetKeyName(15, "dwg.png");
+            this.IconList.Images.SetKeyName(16, "psd.png");
+            this.IconList.Images.SetKeyName(17, "iso.png");
+            this.IconList.Images.SetKeyName(18, "7z.png");
+            this.IconList.Images.SetKeyName(19, "js.png");
+            this.IconList.Images.SetKeyName(20, "gif.png");
+            this.IconList.Images.SetKeyName(21, "tiff.png");
+            this.IconList.Images.SetKeyName(22, "css.png");
+            this.IconList.Images.SetKeyName(23, "exe.png");
+            this.IconList.Images.SetKeyName(24, "rar.png");
+            this.IconList.Images.SetKeyName(25, "mp4.png");
+            this.IconList.Images.SetKeyName(26, "mp3.png");
+            this.IconList.Images.SetKeyName(27, "ppt.png");
+            this.IconList.Images.SetKeyName(28, "png.png");
+            this.IconList.Images.SetKeyName(29, "txt.png");
+            this.IconList.Images.SetKeyName(30, "csv.png");
+            this.IconList.Images.SetKeyName(31, "zip.png");
+            this.IconList.Images.SetKeyName(32, "xml.png");
+            this.IconList.Images.SetKeyName(33, "html.png");
+            this.IconList.Images.SetKeyName(34, "jpg.png");
+            this.IconList.Images.SetKeyName(35, "json.png");
+            this.IconList.Images.SetKeyName(36, "doc.png");
+            this.IconList.Images.SetKeyName(37, "xls.png");
+            this.IconList.Images.SetKeyName(38, "pdf.png");
+            this.IconList.Images.SetKeyName(39, "folder.png");
+            this.IconList.Images.SetKeyName(40, "unknown.png");
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripDropDownButton1, this.toolStripTextBox1, this.searchButton, this.darkModeButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1454, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1184, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.crearToolStripMenuItem, this.informacionToolStripMenuItem, this.salirToolStripMenuItem});
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.crearToolStripMenuItem, this.exportarToolStripMenuItem, this.salirToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image) (resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -104,7 +136,7 @@ namespace FileManagerProgIII
             // 
             this.crearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.archivoToolStripMenuItem, this.directorioToolStripMenuItem});
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.crearToolStripMenuItem.Text = "Crear";
             // 
             // archivoToolStripMenuItem
@@ -121,16 +153,23 @@ namespace FileManagerProgIII
             this.directorioToolStripMenuItem.Text = "Directorio";
             this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click);
             // 
-            // informacionToolStripMenuItem
+            // exportarToolStripMenuItem
             // 
-            this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.informacionToolStripMenuItem.Text = "Informacion";
+            this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.xMLToolStripMenuItem});
+            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.exportarToolStripMenuItem.Text = "Exportar";
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.xMLToolStripMenuItem.Text = "XML";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // toolStripTextBox1
@@ -138,6 +177,7 @@ namespace FileManagerProgIII
             this.toolStripTextBox1.BackColor = System.Drawing.SystemColors.Info;
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(400, 25);
+            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // searchButton
             // 
@@ -205,8 +245,8 @@ namespace FileManagerProgIII
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listView2);
-            this.splitContainer2.Size = new System.Drawing.Size(1210, 699);
-            this.splitContainer2.SplitterDistance = 496;
+            this.splitContainer2.Size = new System.Drawing.Size(985, 656);
+            this.splitContainer2.SplitterDistance = 465;
             this.splitContainer2.TabIndex = 14;
             // 
             // listView1
@@ -216,7 +256,7 @@ namespace FileManagerProgIII
             this.listView1.LargeImageList = this.IconList;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1210, 496);
+            this.listView1.Size = new System.Drawing.Size(985, 465);
             this.listView1.SmallImageList = this.IconList;
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -228,9 +268,10 @@ namespace FileManagerProgIII
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {this.columnHeader1, this.columnHeader2, this.columnHeader3});
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(0, 0);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(1210, 199);
+            this.listView2.Size = new System.Drawing.Size(985, 187);
             this.listView2.SmallImageList = this.imageList1;
             this.listView2.TabIndex = 12;
             this.listView2.UseCompatibleStateImageBehavior = false;
@@ -260,7 +301,7 @@ namespace FileManagerProgIII
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
             this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(240, 699);
+            this.treeView1.Size = new System.Drawing.Size(195, 656);
             this.treeView1.TabIndex = 0;
             // 
             // splitContainer1
@@ -279,19 +320,21 @@ namespace FileManagerProgIII
             this.splitContainer1.Panel2.Controls.Add(this.pathBox);
             this.splitContainer1.Panel2.Controls.Add(this.backButton);
             this.splitContainer1.Panel2.Controls.Add(this.goButton);
-            this.splitContainer1.Size = new System.Drawing.Size(1454, 699);
-            this.splitContainer1.SplitterDistance = 240;
+            this.splitContainer1.Size = new System.Drawing.Size(1184, 656);
+            this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1454, 724);
+            this.ClientSize = new System.Drawing.Size(1184, 681);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Programación 3: Catalogador de Archivos - Grupo 3.";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -345,11 +388,12 @@ namespace FileManagerProgIII
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem directorioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
     }
 }
 
