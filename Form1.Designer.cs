@@ -40,6 +40,8 @@ namespace FileManagerProgIII
             this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.searchButton = new System.Windows.Forms.ToolStripButton();
+            this.darkModeButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -82,7 +84,7 @@ namespace FileManagerProgIII
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripDropDownButton1, this.toolStripTextBox1, this.toolStripLabel1});
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripDropDownButton1, this.toolStripTextBox1, this.searchButton, this.darkModeButton, this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1454, 25);
@@ -138,12 +140,31 @@ namespace FileManagerProgIII
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(400, 25);
             // 
+            // searchButton
+            // 
+            this.searchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.searchButton.Image = ((System.Drawing.Image) (resources.GetObject("searchButton.Image")));
+            this.searchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(46, 22);
+            this.searchButton.Text = "Search";
+            this.searchButton.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // darkModeButton
+            // 
+            this.darkModeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.darkModeButton.Image = ((System.Drawing.Image) (resources.GetObject("darkModeButton.Image")));
+            this.darkModeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.darkModeButton.Name = "darkModeButton";
+            this.darkModeButton.Size = new System.Drawing.Size(23, 22);
+            this.darkModeButton.Text = "toolStripButton1";
+            this.darkModeButton.Click += new System.EventHandler(this.darkModeButton_Click);
+            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
-            this.toolStripLabel1.Text = "Search";
-            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            this.toolStripLabel1.Size = new System.Drawing.Size(86, 22);
+            this.toolStripLabel1.Text = "toolStripLabel1";
             // 
             // imageList1
             // 
@@ -292,6 +313,14 @@ namespace FileManagerProgIII
         }
 
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+
+        private System.Windows.Forms.ToolStripButton darkModeButton;
+
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+
+        private System.Windows.Forms.ToolStripButton searchButton;
+
+
 
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
 

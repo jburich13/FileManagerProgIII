@@ -15,6 +15,7 @@ namespace FileManagerProgIII
     public partial class Form1 : Form
     {
         //VARIABLES
+        private bool darkModeFlag = false;
         private string filePath = "D:/"; //el path de busqueda
         private bool esArch = false; //para saber si es carpeta o arch
         private string elemSeleccionado = ""; //Guarda el nombre del elem seleccionado
@@ -27,9 +28,11 @@ namespace FileManagerProgIII
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PopulateTreeView();
+            getDrives();
+            
             pathBox.Text = filePath; //pone el texto del path en el TextBox
             cargarArchivosyCarpetas(); //Funcion que carga los archivos y las carpetas
+            
 
         }
         private void BuildTree(DirectoryInfo directoryInfo, TreeNodeCollection addInMe)
@@ -48,7 +51,7 @@ namespace FileManagerProgIII
 
         public void cargar()
         {
-            filePath = pathBox.Text;
+            filePath = toolStripTextBox1.Text;
             cargarArchivosyCarpetas();
             esArch = false;
         }
@@ -203,7 +206,7 @@ namespace FileManagerProgIII
             TreeNodeMouseClickEventArgs e)
         {
             TreeNode newSelected = e.Node;
-            pathBox.Text = newSelected.FullPath;
+            toolStripTextBox1.Text = newSelected.FullPath;
             cargar();
             listView2.Items.Clear();
             DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
@@ -234,11 +237,19 @@ namespace FileManagerProgIII
 
             listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
-        private void PopulateTreeView()
+
+        private void getDrives()
+        {
+            string[] drives = Environment.GetLogicalDrives();
+            foreach (var drive in drives)
+            {
+                PopulateTreeView((drive.ToString()));
+            }
+        }
+        private void PopulateTreeView(string path)
         {
             TreeNode rootNode;
-    
-            DirectoryInfo info = new DirectoryInfo(@"C:\");
+            DirectoryInfo info = new DirectoryInfo(path);
             if (info.Exists)
             {
                 rootNode = new TreeNode(info.Name);
@@ -251,21 +262,29 @@ namespace FileManagerProgIII
         private void GetDirectories(DirectoryInfo[] subDirs,
             TreeNode nodeToAddTo)
         {
-            TreeNode aNode;
-            DirectoryInfo[] subSubDirs;
-            foreach (DirectoryInfo subDir in subDirs)
+            try
             {
-                aNode = new TreeNode(subDir.Name, 1, 0);
-                aNode.Tag = subDir;
-                aNode.ImageKey = "folder";
-                
-                subSubDirs = subDir.GetDirectories();
-                if (subSubDirs.Length != 0)
+                TreeNode aNode;
+                DirectoryInfo[] subSubDirs;
+                foreach (DirectoryInfo subDir in subDirs)
                 {
-                    GetDirectories(subSubDirs, aNode);
+                    aNode = new TreeNode(subDir.Name, 1, 0);
+                    aNode.Tag = subDir;
+                    aNode.ImageKey = "folder";
+                
+                    subSubDirs = subDir.GetDirectories();
+                    if (subSubDirs.Length != 0)
+                    {
+                        GetDirectories(subSubDirs, aNode);
+                    }
+                    nodeToAddTo.Nodes.Add(aNode);
                 }
-                nodeToAddTo.Nodes.Add(aNode);
             }
+            catch(Exception ex)
+            {
+                
+            }
+            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -273,9 +292,35 @@ namespace FileManagerProgIII
            
         }
 
-        private void toolStripLabel1_Click(object sender, EventArgs e)
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            cargar();
+        }
+
+        private void darkModeButton_Click(object sender, EventArgs e)
+        {
+            if (darkModeFlag == false)
+            {
+                treeView1.BackColor = Color.FromArgb(64, 64, 64);
+                listView1.BackColor = Color.FromArgb(64, 64, 64);
+                listView2.BackColor = Color.FromArgb(64, 64, 64);
+                listView1.ForeColor = Color.White; 
+                listView2.ForeColor = Color.White;
+                treeView1.ForeColor = Color.White;
+                darkModeButton.Image = Image.FromFile(@"C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\img\sun.png");
+                darkModeFlag = true;
+            } else{
+                treeView1.BackColor = Color.White;
+                listView1.BackColor = Color.White;
+                listView2.BackColor = Color.White;
+                listView1.ForeColor = Color.Black; 
+                listView2.ForeColor = Color.Black;
+                treeView1.ForeColor = Color.Black;
+                darkModeButton.Image = Image.FromFile(@"C:\Users\Juan\Desktop\Programacion\FileManagerPorgIII\img\moon.png");
+                darkModeFlag = false;
+            }
+            
         }
     }
 }
