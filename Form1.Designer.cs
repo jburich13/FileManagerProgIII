@@ -78,7 +78,6 @@ namespace FileManagerProgIII
             this.pathBox.Name = "pathBox";
             this.pathBox.Size = new System.Drawing.Size(951, 20);
             this.pathBox.TabIndex = 2;
-            this.pathBox.TextChanged += new System.EventHandler(this.pathBox_TextChanged);
             // 
             // listView1
             // 
@@ -151,7 +150,7 @@ namespace FileManagerProgIII
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1184, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1137, 25);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -180,34 +179,34 @@ namespace FileManagerProgIII
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.archivoToolStripMenuItem.Text = "Archivo";
             this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click);
             // 
             // directorioToolStripMenuItem
             // 
             this.directorioToolStripMenuItem.Name = "directorioToolStripMenuItem";
-            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.directorioToolStripMenuItem.Text = "Directorio";
             this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click);
             // 
             // informacionToolStripMenuItem
             // 
             this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.informacionToolStripMenuItem.Text = "Informacion";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 661);
+            this.ClientSize = new System.Drawing.Size(1137, 620);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.fileType);
             this.Controls.Add(this.fileName);
@@ -218,8 +217,7 @@ namespace FileManagerProgIII
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.goButton);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Explorador de Archivos - G3";
+            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -233,11 +231,6 @@ namespace FileManagerProgIII
         private System.Windows.Forms.Button goButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.TextBox pathBox;
-        public string getPathBox()
-        {
-            return this.pathBox.Text;
-        }
-
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label fileNameLabel;
         private System.Windows.Forms.Label fileTypeLabel;
