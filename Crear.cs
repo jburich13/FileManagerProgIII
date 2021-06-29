@@ -75,5 +75,10 @@ namespace FileManagerProgIII
         {
             cargarDiscos();
         }
+
+        private void textBox_direccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

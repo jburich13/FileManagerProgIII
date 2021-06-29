@@ -29,6 +29,7 @@ namespace FileManagerProgIII
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crear));
             this.textBox_nombre = new System.Windows.Forms.TextBox();
             this.comboBox_extension = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,7 +82,7 @@ namespace FileManagerProgIII
             ".tmp",
             ".sys",
             ".mpeg"});
-            this.comboBox_extension.Location = new System.Drawing.Point(154, 42);
+            this.comboBox_extension.Location = new System.Drawing.Point(160, 42);
             this.comboBox_extension.Name = "comboBox_extension";
             this.comboBox_extension.Size = new System.Drawing.Size(54, 21);
             this.comboBox_extension.TabIndex = 1;
@@ -98,7 +99,7 @@ namespace FileManagerProgIII
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(155, 23);
+            this.label2.Location = new System.Drawing.Point(161, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
@@ -130,11 +131,12 @@ namespace FileManagerProgIII
             this.textBox_direccion.Name = "textBox_direccion";
             this.textBox_direccion.Size = new System.Drawing.Size(142, 20);
             this.textBox_direccion.TabIndex = 6;
+            this.textBox_direccion.TextChanged += new System.EventHandler(this.textBox_direccion_TextChanged);
             // 
             // comboBox_disco
             // 
             this.comboBox_disco.FormattingEnabled = true;
-            this.comboBox_disco.Location = new System.Drawing.Point(154, 96);
+            this.comboBox_disco.Location = new System.Drawing.Point(160, 96);
             this.comboBox_disco.Name = "comboBox_disco";
             this.comboBox_disco.Size = new System.Drawing.Size(54, 21);
             this.comboBox_disco.TabIndex = 7;
@@ -151,7 +153,7 @@ namespace FileManagerProgIII
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(154, 77);
+            this.label4.Location = new System.Drawing.Point(160, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 9;
@@ -173,7 +175,9 @@ namespace FileManagerProgIII
             this.Controls.Add(this.comboBox_extension);
             this.Controls.Add(this.textBox_nombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Crear";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Crear Archivo";
             this.Load += new System.EventHandler(this.Crear_Load);
             this.ResumeLayout(false);

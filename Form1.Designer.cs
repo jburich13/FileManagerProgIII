@@ -37,7 +37,10 @@ namespace FileManagerProgIII
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.repositorioDelProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
@@ -55,9 +58,6 @@ namespace FileManagerProgIII
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.repositorioDelProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -134,13 +134,33 @@ namespace FileManagerProgIII
             this.directorioToolStripMenuItem.Text = "Directorio";
             this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click);
             // 
+            // exportarToolStripMenuItem
+            // 
+            this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xMLToolStripMenuItem});
+            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.exportarToolStripMenuItem.Text = "Exportar";
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.xMLToolStripMenuItem.Text = "XML";
+            // 
             // informacionToolStripMenuItem
             // 
             this.informacionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.repositorioDelProyectoToolStripMenuItem});
             this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.informacionToolStripMenuItem.Text = "Informacion";
+            // 
+            // repositorioDelProyectoToolStripMenuItem
+            // 
+            this.repositorioDelProyectoToolStripMenuItem.Name = "repositorioDelProyectoToolStripMenuItem";
+            this.repositorioDelProyectoToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.repositorioDelProyectoToolStripMenuItem.Text = "Repositorio del Proyecto";
             // 
             // salirToolStripMenuItem
             // 
@@ -154,6 +174,7 @@ namespace FileManagerProgIII
             this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(400, 25);
+            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             // 
             // searchButton
             // 
@@ -302,26 +323,6 @@ namespace FileManagerProgIII
             this.splitContainer1.Size = new System.Drawing.Size(1184, 656);
             this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 10;
-            // 
-            // exportarToolStripMenuItem
-            // 
-            this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xMLToolStripMenuItem});
-            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportarToolStripMenuItem.Text = "Exportar";
-            // 
-            // xMLToolStripMenuItem
-            // 
-            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.xMLToolStripMenuItem.Text = "XML";
-            // 
-            // repositorioDelProyectoToolStripMenuItem
-            // 
-            this.repositorioDelProyectoToolStripMenuItem.Name = "repositorioDelProyectoToolStripMenuItem";
-            this.repositorioDelProyectoToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.repositorioDelProyectoToolStripMenuItem.Text = "Repositorio del Proyecto";
             // 
             // Form1
             // 

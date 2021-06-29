@@ -18,7 +18,9 @@ namespace FileManagerProgIII
     {
         //VARIABLES
         private bool _darkModeFlag = false;
-        private string _filePath; //el path de busqueda
+
+        public string _filePath; //el path de busqueda
+
         private bool _esArch = false; //para saber si es carpeta o arch
         private string _elemSeleccionado = ""; //Guarda el nombre del elem seleccionado
         
@@ -51,6 +53,7 @@ namespace FileManagerProgIII
         {
             string tempPathArch="";
             tempPathArch = removeBackLash(_filePath) + @"\" + _elemSeleccionado; //Se toma la ruta completa
+
             MessageBox.Show(tempPathArch);
             Process.Start(tempPathArch);
         }
@@ -142,7 +145,8 @@ namespace FileManagerProgIII
 
         private void directorioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CrearDirectorio cd = new CrearDirectorio();
+            cd.Show();
         }
         
         void treeView1_NodeMouseClick(object sender,
@@ -308,6 +312,18 @@ namespace FileManagerProgIII
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
             Cargar();
+        }
+
+        //Método que retorne el directorio actual
+        public string getDirectory()
+        {
+
+            return "owo";
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
