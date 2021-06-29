@@ -39,8 +39,6 @@ namespace FileManagerProgIII
             this.directorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.repositorioDelProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
@@ -103,7 +101,6 @@ namespace FileManagerProgIII
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearToolStripMenuItem,
             this.exportarToolStripMenuItem,
-            this.informacionToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -117,20 +114,20 @@ namespace FileManagerProgIII
             this.archivoToolStripMenuItem,
             this.directorioToolStripMenuItem});
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearToolStripMenuItem.Text = "Crear";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.archivoToolStripMenuItem.Text = "Archivo";
             this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click);
             // 
             // directorioToolStripMenuItem
             // 
             this.directorioToolStripMenuItem.Name = "directorioToolStripMenuItem";
-            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.directorioToolStripMenuItem.Text = "Directorio";
             this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click);
             // 
@@ -139,7 +136,7 @@ namespace FileManagerProgIII
             this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xMLToolStripMenuItem});
             this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportarToolStripMenuItem.Text = "Exportar";
             // 
             // xMLToolStripMenuItem
@@ -148,24 +145,10 @@ namespace FileManagerProgIII
             this.xMLToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.xMLToolStripMenuItem.Text = "XML";
             // 
-            // informacionToolStripMenuItem
-            // 
-            this.informacionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.repositorioDelProyectoToolStripMenuItem});
-            this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.informacionToolStripMenuItem.Text = "Informacion";
-            // 
-            // repositorioDelProyectoToolStripMenuItem
-            // 
-            this.repositorioDelProyectoToolStripMenuItem.Name = "repositorioDelProyectoToolStripMenuItem";
-            this.repositorioDelProyectoToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.repositorioDelProyectoToolStripMenuItem.Text = "Repositorio del Proyecto";
-            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // toolStripTextBox1
@@ -389,14 +372,12 @@ namespace FileManagerProgIII
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem directorioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem repositorioDelProyectoToolStripMenuItem;
     }
 }
 

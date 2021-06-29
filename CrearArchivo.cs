@@ -11,15 +11,13 @@ using System.IO;
 
 namespace FileManagerProgIII
 {
-    public partial class CrearDirectorio : Form
+    public partial class CrearArchivo : Form
     {
         string nombre;
         string directorio = Form1.pathF2;
-        
-        public CrearDirectorio()
+        public CrearArchivo()
         {
             InitializeComponent();
-            textBox2.Text = directorio;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +26,7 @@ namespace FileManagerProgIII
             try
             {
                 nombre = textBox1.Text;
-                Directory.CreateDirectory(directorio + @"\" + nombre);
+                File.Create(directorio + @"\" + nombre);
             }
             catch (Exception ex)
             {
@@ -37,9 +35,19 @@ namespace FileManagerProgIII
             this.Close();
         }
 
-        private void CrearDirectorio_Load(object sender, EventArgs e)
+        private void CrearArchivo_Load(object sender, EventArgs e)
         {
             textBox2.Text = Form1.pathF2;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

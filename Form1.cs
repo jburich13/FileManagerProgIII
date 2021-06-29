@@ -11,6 +11,7 @@ using System.Security;
 using System.Security.Permissions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web;
 
 namespace FileManagerProgIII
 {
@@ -19,10 +20,11 @@ namespace FileManagerProgIII
         //VARIABLES
         private bool _darkModeFlag = false;
 
-        public string _filePath; //el path de busqueda
+        private string _filePath; //el path de busqueda
 
         private bool _esArch = false; //para saber si es carpeta o arch
         private string _elemSeleccionado = ""; //Guarda el nombre del elem seleccionado
+        public static string pathF2 = "";
         
         //CONSTRUCTOR DEL FORM
         public Form1()
@@ -139,12 +141,14 @@ namespace FileManagerProgIII
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //FileInfo nuevo = new FileInfo(nombre);
-            Crear ventana = new Crear();
+            pathF2 = toolStripTextBox1.Text;
+            CrearArchivo ventana = new CrearArchivo();
             ventana.ShowDialog();
         }
 
         private void directorioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pathF2 = toolStripTextBox1.Text;
             CrearDirectorio cd = new CrearDirectorio();
             cd.Show();
         }
@@ -314,16 +318,14 @@ namespace FileManagerProgIII
             Cargar();
         }
 
-        //Método que retorne el directorio actual
-        public string getDirectory()
-        {
-
-            return "owo";
-        }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void repositorioDelProyectoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
         }
     }
 }
