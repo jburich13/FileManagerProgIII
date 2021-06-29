@@ -42,7 +42,6 @@ namespace FileManagerProgIII
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.darkModeButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.goButton = new System.Windows.Forms.Button();
@@ -84,7 +83,7 @@ namespace FileManagerProgIII
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripDropDownButton1, this.toolStripTextBox1, this.searchButton, this.darkModeButton, this.toolStripLabel1});
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.toolStripDropDownButton1, this.toolStripTextBox1, this.searchButton, this.darkModeButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1454, 25);
@@ -160,12 +159,6 @@ namespace FileManagerProgIII
             this.darkModeButton.Text = "toolStripButton1";
             this.darkModeButton.Click += new System.EventHandler(this.darkModeButton_Click);
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(86, 22);
-            this.toolStripLabel1.Text = "toolStripLabel1";
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("imageList1.ImageStream")));
@@ -227,6 +220,9 @@ namespace FileManagerProgIII
             this.listView1.SmallImageList = this.IconList;
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged_1);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // listView2
             // 
@@ -311,8 +307,6 @@ namespace FileManagerProgIII
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
 
         private System.Windows.Forms.ToolStripButton darkModeButton;
 
