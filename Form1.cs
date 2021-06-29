@@ -322,5 +322,10 @@ namespace FileManagerProgIII
             }
             
         }
+
+        private void treeView1_AfterSelect_1(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }
