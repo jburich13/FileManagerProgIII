@@ -43,7 +43,7 @@ namespace FileManagerProgIII
             // 
             // textBox_nombre
             // 
-            this.textBox_nombre.Location = new System.Drawing.Point(15, 116);
+            this.textBox_nombre.Location = new System.Drawing.Point(12, 42);
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(142, 20);
             this.textBox_nombre.TabIndex = 0;
@@ -81,7 +81,7 @@ namespace FileManagerProgIII
             ".tmp",
             ".sys",
             ".mpeg"});
-            this.comboBox_extension.Location = new System.Drawing.Point(279, 115);
+            this.comboBox_extension.Location = new System.Drawing.Point(154, 42);
             this.comboBox_extension.Name = "comboBox_extension";
             this.comboBox_extension.Size = new System.Drawing.Size(54, 21);
             this.comboBox_extension.TabIndex = 1;
@@ -89,7 +89,7 @@ namespace FileManagerProgIII
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 97);
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 2;
@@ -98,7 +98,7 @@ namespace FileManagerProgIII
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(276, 97);
+            this.label2.Location = new System.Drawing.Point(155, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
@@ -106,7 +106,7 @@ namespace FileManagerProgIII
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(282, 328);
+            this.button1.Location = new System.Drawing.Point(110, 146);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 23);
             this.button1.TabIndex = 4;
@@ -116,7 +116,7 @@ namespace FileManagerProgIII
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(15, 328);
+            this.button2.Location = new System.Drawing.Point(12, 146);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 23);
             this.button2.TabIndex = 5;
@@ -126,7 +126,7 @@ namespace FileManagerProgIII
             // 
             // textBox_direccion
             // 
-            this.textBox_direccion.Location = new System.Drawing.Point(18, 230);
+            this.textBox_direccion.Location = new System.Drawing.Point(12, 96);
             this.textBox_direccion.Name = "textBox_direccion";
             this.textBox_direccion.Size = new System.Drawing.Size(142, 20);
             this.textBox_direccion.TabIndex = 6;
@@ -134,7 +134,7 @@ namespace FileManagerProgIII
             // comboBox_disco
             // 
             this.comboBox_disco.FormattingEnabled = true;
-            this.comboBox_disco.Location = new System.Drawing.Point(279, 230);
+            this.comboBox_disco.Location = new System.Drawing.Point(154, 96);
             this.comboBox_disco.Name = "comboBox_disco";
             this.comboBox_disco.Size = new System.Drawing.Size(54, 21);
             this.comboBox_disco.TabIndex = 7;
@@ -142,7 +142,7 @@ namespace FileManagerProgIII
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 211);
+            this.label3.Location = new System.Drawing.Point(12, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 8;
@@ -151,7 +151,7 @@ namespace FileManagerProgIII
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(279, 211);
+            this.label4.Location = new System.Drawing.Point(154, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 9;
@@ -161,7 +161,7 @@ namespace FileManagerProgIII
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 381);
+            this.ClientSize = new System.Drawing.Size(226, 190);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox_disco);
@@ -174,7 +174,6 @@ namespace FileManagerProgIII
             this.Controls.Add(this.textBox_nombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Crear";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Crear Archivo";
             this.Load += new System.EventHandler(this.Crear_Load);
             this.ResumeLayout(false);

@@ -42,7 +42,6 @@ namespace FileManagerProgIII
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.darkModeButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.goButton = new System.Windows.Forms.Button();
@@ -56,6 +55,9 @@ namespace FileManagerProgIII
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.repositorioDelProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -88,8 +90,7 @@ namespace FileManagerProgIII
             this.toolStripDropDownButton1,
             this.toolStripTextBox1,
             this.searchButton,
-            this.darkModeButton,
-            this.toolStripLabel1});
+            this.darkModeButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1184, 25);
@@ -101,6 +102,7 @@ namespace FileManagerProgIII
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crearToolStripMenuItem,
+            this.exportarToolStripMenuItem,
             this.informacionToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
@@ -134,8 +136,10 @@ namespace FileManagerProgIII
             // 
             // informacionToolStripMenuItem
             // 
+            this.informacionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.repositorioDelProyectoToolStripMenuItem});
             this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.informacionToolStripMenuItem.Text = "Informacion";
             // 
             // salirToolStripMenuItem
@@ -170,12 +174,6 @@ namespace FileManagerProgIII
             this.darkModeButton.Size = new System.Drawing.Size(23, 22);
             this.darkModeButton.Text = "toolStripButton1";
             this.darkModeButton.Click += new System.EventHandler(this.darkModeButton_Click);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(86, 22);
-            this.toolStripLabel1.Text = "toolStripLabel1";
             // 
             // imageList1
             // 
@@ -238,6 +236,9 @@ namespace FileManagerProgIII
             this.listView1.SmallImageList = this.IconList;
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged_1);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // listView2
             // 
@@ -281,7 +282,6 @@ namespace FileManagerProgIII
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.Size = new System.Drawing.Size(195, 656);
             this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);
             // 
             // splitContainer1
             // 
@@ -303,6 +303,26 @@ namespace FileManagerProgIII
             this.splitContainer1.SplitterDistance = 195;
             this.splitContainer1.TabIndex = 10;
             // 
+            // exportarToolStripMenuItem
+            // 
+            this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xMLToolStripMenuItem});
+            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportarToolStripMenuItem.Text = "Exportar";
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xMLToolStripMenuItem.Text = "XML";
+            // 
+            // repositorioDelProyectoToolStripMenuItem
+            // 
+            this.repositorioDelProyectoToolStripMenuItem.Name = "repositorioDelProyectoToolStripMenuItem";
+            this.repositorioDelProyectoToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.repositorioDelProyectoToolStripMenuItem.Text = "Repositorio del Proyecto";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,7 +333,7 @@ namespace FileManagerProgIII
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Catalogador de Archivos - Programación 3 - Grupo 3.";
+            this.Text = "Programación 3: Catalogador de Archivos - Grupo 3.";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -330,8 +350,6 @@ namespace FileManagerProgIII
             this.PerformLayout();
 
         }
-
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
 
         private System.Windows.Forms.ToolStripButton darkModeButton;
 
@@ -375,6 +393,9 @@ namespace FileManagerProgIII
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem directorioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem repositorioDelProyectoToolStripMenuItem;
     }
 }
 

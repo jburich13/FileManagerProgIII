@@ -52,12 +52,6 @@
     <Compile Include="Crear.Designer.cs">
       <DependentUpon>Crear.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearDirectorio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CrearDirectorio.Designer.cs">
-      <DependentUpon>CrearDirectorio.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
