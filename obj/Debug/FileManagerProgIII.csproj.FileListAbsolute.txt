@@ -50,3 +50,14 @@ C:\Users\Juan\Desktop\Programacion\PabloBranch\FileManagerProgIII\obj\Debug\File
 C:\Users\Juan\Desktop\Programacion\PabloBranch\FileManagerProgIII\obj\Debug\FileManagerProgIII.csproj.CoreCompileInputs.cache
 C:\Users\Juan\Desktop\Programacion\PabloBranch\FileManagerProgIII\obj\Debug\FileManagerProgIII.exe
 C:\Users\Juan\Desktop\Programacion\PabloBranch\FileManagerProgIII\obj\Debug\FileManagerProgIII.pdb
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\bin\Debug\FileManagerProgIII.exe.config
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\bin\Debug\FileManagerProgIII.exe
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\bin\Debug\FileManagerProgIII.pdb
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\obj\Debug\FileManagerProgIII.csproj.AssemblyReference.cache
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\obj\Debug\FileManagerProgIII.Crear.resources
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\obj\Debug\FileManagerProgIII.Form1.resources
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\obj\Debug\FileManagerProgIII.Properties.Resources.resources
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\obj\Debug\FileManagerProgIII.csproj.GenerateResource.cache
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\obj\Debug\FileManagerProgIII.csproj.CoreCompileInputs.cache
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\obj\Debug\FileManagerProgIII.exe
+C:\Users\moral\OneDrive\Escritorio\FileManagerProgIII\obj\Debug\FileManagerProgIII.pdb
