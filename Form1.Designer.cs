@@ -136,28 +136,28 @@ namespace FileManagerProgIII
             // 
             this.crearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.archivoToolStripMenuItem, this.directorioToolStripMenuItem});
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.crearToolStripMenuItem.Text = "Crear";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.archivoToolStripMenuItem.Text = "Archivo";
-            this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click);
+            this.archivoToolStripMenuItem.Click += new System.EventHandler(this.archivoToolStripMenuItem_Click_1);
             // 
             // directorioToolStripMenuItem
             // 
             this.directorioToolStripMenuItem.Name = "directorioToolStripMenuItem";
-            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.directorioToolStripMenuItem.Text = "Directorio";
-            this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click);
+            this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click_1);
             // 
             // exportarToolStripMenuItem
             // 
             this.exportarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.xMLToolStripMenuItem});
             this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportarToolStripMenuItem.Text = "Exportar";
             // 
             // xMLToolStripMenuItem
@@ -169,7 +169,7 @@ namespace FileManagerProgIII
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // toolStripTextBox1

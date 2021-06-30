@@ -19,9 +19,9 @@ namespace FileManagerProgIII
     {
         //VARIABLES
         private bool _darkModeFlag = false;
-
+        FileAttributes archAttr ;
         private string _filePath=""; //el path de busqueda
-
+        string tempPathArch="";
         private bool _esArch = false; //para saber si es carpeta o arch
         private string _elemSeleccionado = ""; //Guarda el nombre del elem seleccionado
         public static string pathF2 = "";
@@ -50,190 +50,192 @@ namespace FileManagerProgIII
             _esArch = false;
         }
 
-        private void iniciarApp()
-        {
-          
-        }
+        
         private void LoadArch_and_FilesListView1()
         {
             try
             {
-                string tempPathArch="";
-                FileAttributes archAttr ;
-                if (_esArch)
-                {
-                    
-                    tempPathArch = removeBackLash(_filePath) + @"\" + _elemSeleccionado; //Se toma la ruta completa
-                    archAttr = File.GetAttributes(tempPathArch); //Se guardan los atributos
-                    
-                }
-                else
-                {
-                    archAttr = File.GetAttributes(_filePath);
-                }
-
-                if((archAttr & FileAttributes.Directory) == FileAttributes.Directory) //Si es un directorio
-                {
-                    DirectoryInfo listaArch = new DirectoryInfo(_filePath);
-                    FileInfo[] archivos = listaArch.GetFiles(); //se traen los archivos
-                    DirectoryInfo[] carpetas = listaArch.GetDirectories(); //Se traen las carpetas
-                    string fileExtension = "";
-                    listView1.Items.Clear(); //Se limpia lo que estaba antes
-                    for (int i = 0; i < archivos.Length; i++)
-                    {
-                        fileExtension = archivos[i].Extension.ToUpper();
-                        switch(fileExtension)
-                        {
-                            case ".MXF":
-                                listView1.Items.Add(archivos[i].Name, 0);
-                                break;
-                            case ".MDF":
-                                listView1.Items.Add(archivos[i].Name, 1);
-                                break;
-
-                            case ".NRG":
-                                listView1.Items.Add(archivos[i].Name, 2);
-                                break;
-                            case ".ARJ":
-                                listView1.Items.Add(archivos[i].Name, 3);
-                                break;
-                            case ".MP2":
-                                listView1.Items.Add(archivos[i].Name, 4);
-                                break;
-                            case ".FLA":
-                                listView1.Items.Add(archivos[i].Name, 5);
-                                break;
-                            case".WMA":
-                                listView1.Items.Add(archivos[i].Name, 6);
-                                break;
-                            case".RTF":
-                                listView1.Items.Add(archivos[i].Name, 7);
-                                break;
-                            case".AAC":
-                                listView1.Items.Add(archivos[i].Name, 8);
-                                break;
-                            case".FLAC":
-                                listView1.Items.Add(archivos[i].Name, 9);
-                                break;
-                            case".SVG":
-                                listView1.Items.Add(archivos[i].Name, 10);
-                                break;
-                            case".WAV":
-                                listView1.Items.Add(archivos[i].Name, 11);
-                                break;
-                            case".AI":
-                                listView1.Items.Add(archivos[i].Name, 12);
-                                break;
-                            case".AVI":
-                                listView1.Items.Add(archivos[i].Name, 13);
-                                break;
-                            case".DBF":
-                                listView1.Items.Add(archivos[i].Name, 14);
-                                break;
-                            case".DWG":
-                                listView1.Items.Add(archivos[i].Name, 15);
-                                break;
-                            case".PSD":
-                                listView1.Items.Add(archivos[i].Name, 16);
-                                break;
-                            case".ISO":
-                                listView1.Items.Add(archivos[i].Name, 17);
-                                break;
-                            case".7Z":
-                                listView1.Items.Add(archivos[i].Name, 18);
-                                break;
-                            case".JS":
-                                listView1.Items.Add(archivos[i].Name, 19);
-                                break;
-                            case".GIF":
-                                listView1.Items.Add(archivos[i].Name, 20);
-                                break;
-                            case".TIFF":
-                                listView1.Items.Add(archivos[i].Name, 21);
-                                break;
-                            case".CSS":
-                                listView1.Items.Add(archivos[i].Name, 22);
-                                break;
-                            case".EXE":
-                                listView1.Items.Add(archivos[i].Name, 23);
-                                break;
-                            case".RAR":
-                                listView1.Items.Add(archivos[i].Name, 24);
-                                break;
-                            case".MP4":
-                                listView1.Items.Add(archivos[i].Name, 25);
-                                break;
-                            case".MP3":
-                                listView1.Items.Add(archivos[i].Name, 26);
-                                break;
-                            case".PPT":
-                                listView1.Items.Add(archivos[i].Name, 27);
-                                break;
-                            case".PNG":
-                                listView1.Items.Add(archivos[i].Name, 28);
-                                break;
-                            case".TXT":
-                                listView1.Items.Add(archivos[i].Name, 29);
-                                break;
-                            case".CSV":
-                                listView1.Items.Add(archivos[i].Name, 30);
-                                break;
-                            case".ZIP":
-                                listView1.Items.Add(archivos[i].Name, 31);
-                                break;
-                            case".XML":
-                                listView1.Items.Add(archivos[i].Name, 32);
-                                break;
-                            case".HTML":
-                                listView1.Items.Add(archivos[i].Name, 33);
-                                break;
-                            case".JPG":
-                                listView1.Items.Add(archivos[i].Name, 34);
-                                break;
-                            case".JSON":
-                                listView1.Items.Add(archivos[i].Name, 35);
-                                break;
-                            case".DOC":
-                            case".DOCX":
-                                listView1.Items.Add(archivos[i].Name, 36);
-                                break;
-                            case".XLS":
-                                listView1.Items.Add(archivos[i].Name, 37);
-                                break;
-                            case".PDF":
-                                listView1.Items.Add(archivos[i].Name, 38);
-                                break;
-                            default:
-                                listView1.Items.Add(archivos[i].Name, 40);
-                                break;
-                        }
-                    }
-                    for (int i = 0; i < carpetas.Length; i++)
-                    {
-                        listView1.Items.Add(carpetas[i].Name,39);//Se agrega los files
-                    }
-                }
+                iniciarApp();
+                loadDirandFiles();
+                
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message + e.StackTrace);
             }
         }
-        
-
-        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void iniciarApp()
         {
-            //FileInfo nuevo = new FileInfo(nombre);
-            pathF2 = toolStripTextBox1.Text;
-            CrearArchivo ventana = new CrearArchivo();
-            ventana.ShowDialog();
+           
+            if (_esArch)
+            {
+                    
+                tempPathArch = removeBackLash(_filePath) + @"\" + _elemSeleccionado; //Se toma la ruta completa
+                archAttr = File.GetAttributes(tempPathArch); //Se guardan los atributos
+                Process.Start(tempPathArch);
+
+            }
+            else
+            {
+                archAttr = File.GetAttributes(_filePath);
+            }
         }
 
-        private void directorioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void loadDirandFiles()
         {
-            pathF2 = toolStripTextBox1.Text;
-            CrearDirectorio cd = new CrearDirectorio();
-            cd.Show();
+            if((archAttr & FileAttributes.Directory) == FileAttributes.Directory) //Si es un directorio
+            {
+                    DirectoryInfo listaArch = new DirectoryInfo(_filePath);
+                    FileInfo[] archivos = listaArch.GetFiles(); //se traen los archivos
+                    DirectoryInfo[] carpetas = listaArch.GetDirectories(); //Se traen las carpetas
+                    listView1.Items.Clear(); //Se limpia lo que estaba antes
+                    loadFilesWithImg(archivos);
+                    loadDirWithImg(carpetas);
+            }
+
+            
+        }
+        private void loadDirWithImg(DirectoryInfo[] carpetas)
+        {
+            for (int i = 0; i < carpetas.Length; i++)
+            {
+                listView1.Items.Add(carpetas[i].Name,39);//Se agrega los files
+            }
+                
+        } 
+        
+        
+        private void loadFilesWithImg(FileInfo[] archivos)
+        {
+            string fileExtension = "";
+            for (int i = 0; i < archivos.Length; i++)
+            {
+                fileExtension = archivos[i].Extension.ToUpper();
+                switch(fileExtension)
+                {
+                    case ".MXF":
+                        listView1.Items.Add(archivos[i].Name, 0);
+                        break;
+                    case ".MDF":
+                        listView1.Items.Add(archivos[i].Name, 1);
+                        break;
+                    case ".NRG":
+                        listView1.Items.Add(archivos[i].Name, 2);
+                        break;
+                    case ".ARJ":
+                        listView1.Items.Add(archivos[i].Name, 3);
+                        break;
+                    case ".MP2":
+                        listView1.Items.Add(archivos[i].Name, 4);
+                        break;
+                    case ".FLA":
+                        listView1.Items.Add(archivos[i].Name, 5);
+                        break;
+                    case".WMA":
+                        listView1.Items.Add(archivos[i].Name, 6);
+                        break;
+                    case".RTF":
+                        listView1.Items.Add(archivos[i].Name, 7);
+                        break;
+                    case".AAC":
+                        listView1.Items.Add(archivos[i].Name, 8);
+                        break;
+                    case".FLAC":
+                        listView1.Items.Add(archivos[i].Name, 9);
+                        break;
+                    case".SVG":
+                        listView1.Items.Add(archivos[i].Name, 10);
+                        break;
+                    case".WAV":
+                        listView1.Items.Add(archivos[i].Name, 11);
+                        break;
+                    case".AI":
+                        listView1.Items.Add(archivos[i].Name, 12);
+                        break;
+                    case".AVI":
+                        listView1.Items.Add(archivos[i].Name, 13);
+                        break;
+                    case".DBF":
+                        listView1.Items.Add(archivos[i].Name, 14);
+                        break;
+                    case".DWG":
+                        listView1.Items.Add(archivos[i].Name, 15);
+                        break;
+                    case".PSD":
+                        listView1.Items.Add(archivos[i].Name, 16);
+                        break;
+                    case".ISO":
+                        listView1.Items.Add(archivos[i].Name, 17);
+                        break;
+                    case".7Z":
+                        listView1.Items.Add(archivos[i].Name, 18);
+                        break;
+                    case".JS":
+                        listView1.Items.Add(archivos[i].Name, 19);
+                        break;
+                    case".GIF":
+                        listView1.Items.Add(archivos[i].Name, 20);
+                        break;
+                    case".TIFF":
+                        listView1.Items.Add(archivos[i].Name, 21);
+                        break;
+                    case".CSS":
+                        listView1.Items.Add(archivos[i].Name, 22);
+                        break;
+                    case".EXE":
+                        listView1.Items.Add(archivos[i].Name, 23);
+                        break;
+                    case".RAR":
+                        listView1.Items.Add(archivos[i].Name, 24);
+                        break;
+                    case".MP4":
+                        listView1.Items.Add(archivos[i].Name, 25);
+                        break;
+                    case".MP3":
+                        listView1.Items.Add(archivos[i].Name, 26);
+                        break;
+                    case".PPT":
+                        listView1.Items.Add(archivos[i].Name, 27);
+                        break;
+                    case".PNG":
+                        listView1.Items.Add(archivos[i].Name, 28);
+                        break;
+                    case".TXT":
+                        listView1.Items.Add(archivos[i].Name, 29);
+                        break;
+                    case".CSV":
+                        listView1.Items.Add(archivos[i].Name, 30);
+                        break;
+                    case".ZIP":
+                        listView1.Items.Add(archivos[i].Name, 31);
+                        break;
+                    case".XML":
+                        listView1.Items.Add(archivos[i].Name, 32);
+                        break;
+                    case".HTML":
+                        listView1.Items.Add(archivos[i].Name, 33);
+                        break;
+                    case".JPG":
+                        listView1.Items.Add(archivos[i].Name, 34);
+                        break;
+                    case".JSON":
+                        listView1.Items.Add(archivos[i].Name, 35);
+                        break;
+                    case".DOC":
+                    case".DOCX":
+                        listView1.Items.Add(archivos[i].Name, 36);
+                        break;
+                    case".XLS":
+                        listView1.Items.Add(archivos[i].Name, 37);
+                        break;
+                    case".PDF":
+                        listView1.Items.Add(archivos[i].Name, 38);
+                        break;
+                    default:
+                        listView1.Items.Add(archivos[i].Name, 40);
+                        break;
+                }
+            }
         }
         
         void treeView1_NodeMouseClick(object sender,
@@ -412,6 +414,22 @@ namespace FileManagerProgIII
 
         private void repositorioDelProyectoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
+
+        private void archivoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+           
+            //FileInfo nuevo = new FileInfo(nombre);
+            pathF2 = toolStripTextBox1.Text;
+            CrearArchivo ventana = new CrearArchivo();
+            ventana.ShowDialog();
+        }
+
+        private void directorioToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            pathF2 = toolStripTextBox1.Text;
+            CrearDirectorio cd = new CrearDirectorio();
+            cd.Show();
         }
     }
 }
