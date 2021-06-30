@@ -49,8 +49,6 @@ namespace FileManagerProgIII
             LoadArch_and_FilesListView1();
             _esArch = false;
         }
-
-        
         private void LoadArch_and_FilesListView1()
         {
             try
@@ -64,23 +62,30 @@ namespace FileManagerProgIII
                 MessageBox.Show(e.Message + e.StackTrace);
             }
         }
+        
+        //DARK MODE HANDLER
+        private void darkModeButton_Click(object sender, EventArgs e)
+        {
+            darkModeChanger(_darkModeFlag);
+        }
+        
+        //Esta funcion: si es un archivo, lo abre.
+        //Si es un dir guarda los attr para que en loadDirAndFiles() puedas comprobar si efectivamente es un Dir
         private void iniciarApp()
         {
            
             if (_esArch)
             {
-                    
                 tempPathArch = removeBackLash(_filePath) + @"\" + _elemSeleccionado; //Se toma la ruta completa
                 archAttr = File.GetAttributes(tempPathArch); //Se guardan los atributos
                 Process.Start(tempPathArch);
-
             }
             else
             {
                 archAttr = File.GetAttributes(_filePath);
             }
         }
-
+        //Funcion para comprobar si estamos parados en un dir, y si es asi te trae los files y dirs de adentro
         private void loadDirandFiles()
         {
             if((archAttr & FileAttributes.Directory) == FileAttributes.Directory) //Si es un directorio
@@ -92,9 +97,9 @@ namespace FileManagerProgIII
                     loadFilesWithImg(archivos);
                     loadDirWithImg(carpetas);
             }
-
-            
         }
+        
+        //Añade los dirs a ListView1, con su img
         private void loadDirWithImg(DirectoryInfo[] carpetas)
         {
             for (int i = 0; i < carpetas.Length; i++)
@@ -104,7 +109,7 @@ namespace FileManagerProgIII
                 
         } 
         
-        
+        //Añade los files a ListView1, con su img
         private void loadFilesWithImg(FileInfo[] archivos)
         {
             string fileExtension = "";
@@ -237,20 +242,21 @@ namespace FileManagerProgIII
                 }
             }
         }
-        
+        //Evento click de los nodos del TreeView.
         void treeView1_NodeMouseClick(object sender,
             TreeNodeMouseClickEventArgs e)
         {
-            _elemSeleccionado = "";
-            TreeNode newSelected = e.Node;
-            toolStripTextBox1.Text = newSelected.FullPath;
-            Cargar();
-            listView2.Items.Clear();
-            DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
-            ListViewItem.ListViewSubItem[] subItems;
-            loadDirInListView2(nodeDirInfo);
-            loadFilesInListView2(nodeDirInfo);
-            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            _elemSeleccionado = ""; //Setea el elemSeleccionado a vacio. Esto porque tuvimos una falla
+                                    //donde si seleccionabas un archivo y despues seleccionabas un nodo, se rompia
+            TreeNode newSelected = e.Node; //Guardas el nodo que seleccionaste
+            toolStripTextBox1.Text = newSelected.FullPath; //Seteas el path del nodo en la barra de busqueda
+            Cargar(); //Cargas en el ListView1 los files y dirs del path que seteamos arriba
+            listView2.Items.Clear(); //Borras lo que tenias en el ListView2. Esto para no acumular carpetas viejas
+            DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag; //Traes la info del nodo que seleccionaste.
+                                                                        //Como siempre vas a seleccionar Directorios, no hay control para hacer
+            loadDirInListView2(nodeDirInfo); //Carga los dirs al ListView2
+            loadFilesInListView2(nodeDirInfo); //Carga los files al ListView2
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize); //Resize a las columnas del ListView2
         }
 
         private void loadFilesInListView2(DirectoryInfo nodeDirInfo)
@@ -264,7 +270,6 @@ namespace FileManagerProgIII
                 { new ListViewItem.ListViewSubItem(item, "File"),
                     new ListViewItem.ListViewSubItem(item,
                         file.LastAccessTime.ToShortDateString())};
-
                 item.SubItems.AddRange(subItems);
                 listView2.Items.Add(item);
             }
@@ -306,11 +311,11 @@ namespace FileManagerProgIII
             string[] drives = Environment.GetLogicalDrives();
             foreach (var drive in drives)
             {
-                PopulateTreeView((drive.ToString()));
+                loadFilesAndDirTreeView((drive.ToString()));
                 
             }
         }
-        private void PopulateTreeView(string path)
+        private void loadFilesAndDirTreeView(string path)
         {
             TreeNode rootNode;
             DirectoryInfo info = new DirectoryInfo(path);
@@ -335,13 +340,11 @@ namespace FileManagerProgIII
                     aNode = new TreeNode(subDir.Name, 1, 0);
                     aNode.Tag = subDir;
                     aNode.ImageKey = "folder";
-
                     subSubDirs = subDir.GetDirectories();
                     if (subSubDirs.Length != 0)
                     {
                         GetDirectories(subSubDirs, aNode);
                     }
-
                     nodeToAddTo.Nodes.Add(aNode);
                 }
             }
@@ -363,9 +366,11 @@ namespace FileManagerProgIII
             Cargar();
         }
 
-        private void darkModeButton_Click(object sender, EventArgs e)
+       
+
+        private void darkModeChanger(bool darkModeFlag)
         {
-            if (_darkModeFlag == false)
+            if (darkModeFlag == false)
             {
                 treeView1.BackColor = Color.FromArgb(64, 64, 64);
                 listView1.BackColor = Color.FromArgb(64, 64, 64);
@@ -383,7 +388,6 @@ namespace FileManagerProgIII
                 treeView1.ForeColor = Color.Black;
                 _darkModeFlag = false;
             }
-            
         }
         
 
@@ -396,13 +400,10 @@ namespace FileManagerProgIII
             {
                 _esArch = false;
                 toolStripTextBox1.Text = _filePath + @"\" + _elemSeleccionado;
-                
-
             }
             else
             {
                 _esArch = true;
-
             }
         }
 
@@ -412,8 +413,6 @@ namespace FileManagerProgIII
         }
         private void archivoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-           
-            //FileInfo nuevo = new FileInfo(nombre);
             pathF2 = toolStripTextBox1.Text;
             CrearArchivo ventana = new CrearArchivo();
             ventana.ShowDialog();
