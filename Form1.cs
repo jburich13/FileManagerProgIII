@@ -248,18 +248,15 @@ namespace FileManagerProgIII
             listView2.Items.Clear();
             DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
             ListViewItem.ListViewSubItem[] subItems;
-            ListViewItem item = null;
+            loadDirInListView2(nodeDirInfo);
+            loadFilesInListView2(nodeDirInfo);
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
 
-            foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
-            {
-                item = new ListViewItem(dir.Name, 0);
-                subItems = new ListViewItem.ListViewSubItem[]
-                {new ListViewItem.ListViewSubItem(item, "Directory"),
-                    new ListViewItem.ListViewSubItem(item,
-                        dir.LastAccessTime.ToShortDateString())};
-                item.SubItems.AddRange(subItems);
-                listView2.Items.Add(item);
-            }
+        private void loadFilesInListView2(DirectoryInfo nodeDirInfo)
+        {
+            ListViewItem item = null;
+            ListViewItem.ListViewSubItem[] subItems;
             foreach (FileInfo file in nodeDirInfo.GetFiles())
             {
                 item = new ListViewItem(file.Name, 1);
@@ -271,10 +268,22 @@ namespace FileManagerProgIII
                 item.SubItems.AddRange(subItems);
                 listView2.Items.Add(item);
             }
-
-            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
-
+        private void loadDirInListView2(DirectoryInfo nodeDirInfo)
+        {
+            ListViewItem item = null;
+            ListViewItem.ListViewSubItem[] subItems;
+            foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
+            {
+                item = new ListViewItem(dir.Name, 0);
+                subItems = new ListViewItem.ListViewSubItem[]
+                {new ListViewItem.ListViewSubItem(item, "Directory"),
+                    new ListViewItem.ListViewSubItem(item,
+                        dir.LastAccessTime.ToShortDateString())};
+                item.SubItems.AddRange(subItems);
+                listView2.Items.Add(item);
+            }
+        }
         public string removeBackLash(string path)
         {
             char[] pathSplitted = path.ToCharArray(0,path.Length);
@@ -376,11 +385,7 @@ namespace FileManagerProgIII
             }
             
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void listView1_ItemSelectionChanged_1(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -405,17 +410,6 @@ namespace FileManagerProgIII
         {
            Cargar();
         }
-
-
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void repositorioDelProyectoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void archivoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
            
