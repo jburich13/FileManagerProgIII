@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Crear.cs">
+    <Compile Include="CrearArchivo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Crear.Designer.cs">
-      <DependentUpon>Crear.cs</DependentUpon>
+    <Compile Include="CrearArchivo.Designer.cs">
+      <DependentUpon>CrearArchivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearDirectorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearDirectorio.Designer.cs">
+      <DependentUpon>CrearDirectorio.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -60,8 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Crear.resx">
-      <DependentUpon>Crear.cs</DependentUpon>
+    <EmbeddedResource Include="CrearArchivo.resx">
+      <DependentUpon>CrearArchivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearDirectorio.resx">
+      <DependentUpon>CrearDirectorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

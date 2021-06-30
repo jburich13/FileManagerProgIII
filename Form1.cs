@@ -7,69 +7,84 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Security;
+using System.Security.Permissions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Web;
 
 namespace FileManagerProgIII
 {
     public partial class Form1 : Form
     {
         //VARIABLES
-        private string filePath = "D:/"; //el path de busqueda
-        private bool esArch = false; //para saber si es carpeta o arch
-        private string elemSeleccionado = ""; //Guarda el nombre del elem seleccionado
+        private bool _darkModeFlag = false;
+
+        private string _filePath; //el path de busqueda
+
+        private bool _esArch = false; //para saber si es carpeta o arch
+        private string _elemSeleccionado = ""; //Guarda el nombre del elem seleccionado
+        public static string pathF2 = "";
+        
+        //CONSTRUCTOR DEL FORM
         public Form1()
         {
             InitializeComponent();
+            this.treeView1.NodeMouseClick +=
+                new TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
         }
-
+        
+        //EVENTO ONLOAD
+        //Se ejecutan los metodos para traer los discos que hay en el sistema, como tambien se setea el textBox de la barra de menu
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            pathBox.Text = filePath; //pone el texto del path en el TextBox
-            cargarArchivosyCarpetas(); //Funcion que carga los archivos y las carpetas
+            getDrives();
+            toolStripTextBox1.Text = _filePath;
+           
+        }
+        
 
+        private void Cargar()
+        {
+            _filePath = toolStripTextBox1.Text;
+            LoadArch_and_FilesListView1();
+            _esArch = false;
         }
 
-        public void cargar()
+        private void iniciarApp()
         {
-            filePath = pathBox.Text;
-            cargarArchivosyCarpetas();
-            esArch = false;
-
-        }
-
-        public void cargarArchivosyCarpetas()
-        {
-            DirectoryInfo listaArch; 
             string tempPathArch="";
-            FileAttributes archAttr ;
+            tempPathArch = removeBackLash(_filePath) + @"\" + _elemSeleccionado; //Se toma la ruta completa
+
+            //MessageBox.Show(tempPathArch);
+            Process.Start(tempPathArch);
+        }
+        private void LoadArch_and_FilesListView1()
+        {
             try
             {
-                if (esArch)
+                string tempPathArch="";
+                FileAttributes archAttr ;
+                if (_esArch)
                 {
-                    tempPathArch = filePath + "/" + elemSeleccionado; //Se toma la ruta completa
-                    FileInfo detallesArch = new FileInfo(tempPathArch); //Se crea un FileInfo para tener los detalles
-                    fileName.Text = detallesArch.Name; //Se setea el nombre del archivo
-                    fileType.Text = detallesArch.Extension; //Se setea la extension
+                    iniciarApp();
                     archAttr = File.GetAttributes(tempPathArch); //Se guardan los atributos
-                    Process.Start(tempPathArch);
+                    MessageBox.Show(archAttr.ToString());
                 }
                 else
                 {
-                    archAttr = File.GetAttributes(filePath);
+                    archAttr = File.GetAttributes(_filePath);
                 }
 
                 if((archAttr & FileAttributes.Directory) == FileAttributes.Directory) //Si es un directorio
                 {
-                    listaArch = new DirectoryInfo(filePath); 
+                    DirectoryInfo listaArch = new DirectoryInfo(_filePath);
                     FileInfo[] archivos = listaArch.GetFiles(); //se traen los archivos
                     DirectoryInfo[] carpetas = listaArch.GetDirectories(); //Se traen las carpetas
                     string fileExtension = "";
                     listView1.Items.Clear(); //Se limpia lo que estaba antes
                     for (int i = 0; i < archivos.Length; i++)
                     {
-                        
                         fileExtension = archivos[i].Extension.ToUpper();
                         switch(fileExtension)
                         {
@@ -110,26 +125,170 @@ namespace FileManagerProgIII
                                 break;
                         }
                     }
-
                     for (int i = 0; i < carpetas.Length; i++)
                     {
                         listView1.Items.Add(carpetas[i].Name,7);//Se agrega los files
                     }
                 }
-                else
-                {
-                    fileName.Text = this.elemSeleccionado;
-                }
             }
             catch (Exception e)
             {
+                //MessageBox.Show("Problema" + e);
+            }
+        }
+        
 
+        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //FileInfo nuevo = new FileInfo(nombre);
+            pathF2 = toolStripTextBox1.Text;
+            CrearArchivo ventana = new CrearArchivo();
+            ventana.ShowDialog();
+        }
+
+        private void directorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pathF2 = toolStripTextBox1.Text;
+            CrearDirectorio cd = new CrearDirectorio();
+            cd.Show();
+        }
+        
+        void treeView1_NodeMouseClick(object sender,
+            TreeNodeMouseClickEventArgs e)
+        {
+            TreeNode newSelected = e.Node;
+            toolStripTextBox1.Text = newSelected.FullPath;
+            Cargar();
+            listView2.Items.Clear();
+            DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
+            ListViewItem.ListViewSubItem[] subItems;
+            ListViewItem item = null;
+
+            foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
+            {
+                item = new ListViewItem(dir.Name, 0);
+                subItems = new ListViewItem.ListViewSubItem[]
+                {new ListViewItem.ListViewSubItem(item, "Directory"),
+                    new ListViewItem.ListViewSubItem(item,
+                        dir.LastAccessTime.ToShortDateString())};
+                item.SubItems.AddRange(subItems);
+                listView2.Items.Add(item);
+            }
+            foreach (FileInfo file in nodeDirInfo.GetFiles())
+            {
+                item = new ListViewItem(file.Name, 1);
+                subItems = new ListViewItem.ListViewSubItem[]
+                { new ListViewItem.ListViewSubItem(item, "File"),
+                    new ListViewItem.ListViewSubItem(item,
+                        file.LastAccessTime.ToShortDateString())};
+
+                item.SubItems.AddRange(subItems);
+                listView2.Items.Add(item);
+            }
+
+            listView2.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        public string removeBackLash(string path)
+        {
+            char[] pathSplitted = path.ToCharArray(0,path.Length);
+            string str = new string(pathSplitted);
+            for (int i = 0;i<pathSplitted.Length;i++)
+            {
+                if (pathSplitted[i].ToString() == @"\")
+                {
+                    str = str.Remove(i,1);
+                    break;
+                }
+                
+            }
+
+            return str;
+        }
+       
+        private void getDrives()
+        {
+            string[] drives = Environment.GetLogicalDrives();
+            foreach (var drive in drives)
+            {
+                PopulateTreeView((drive.ToString()));
+                
+            }
+        }
+        private void PopulateTreeView(string path)
+        {
+            TreeNode rootNode;
+            DirectoryInfo info = new DirectoryInfo(path);
+            if (info.Exists)
+            {
+                rootNode = new TreeNode(info.Name);
+                rootNode.Tag = info;
+                GetDirectories(info.GetDirectories(), rootNode);
+                treeView1.Nodes.Add(rootNode);
             }
         }
 
-        private void goButton_Click(object sender, EventArgs e)
+        private void GetDirectories(DirectoryInfo[] subDirs,
+            TreeNode nodeToAddTo)
         {
-            cargar();
+            try
+            {
+                TreeNode aNode;
+                DirectoryInfo[] subSubDirs;
+                foreach (DirectoryInfo subDir in subDirs)
+                {
+                    aNode = new TreeNode(subDir.Name, 1, 0);
+                    aNode.Tag = subDir;
+                    aNode.ImageKey = "folder";
+
+                    subSubDirs = subDir.GetDirectories();
+                    if (subSubDirs.Length != 0)
+                    {
+                        GetDirectories(subSubDirs, aNode);
+                    }
+
+                    nodeToAddTo.Nodes.Add(aNode);
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                //Vacio porque no encontre evitar que te salga una exception por acceso no autorizado. De todas formas, no muestra las carpetas no autorizadas
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+        
+
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Cargar();
+        }
+
+        private void darkModeButton_Click(object sender, EventArgs e)
+        {
+            if (_darkModeFlag == false)
+            {
+                treeView1.BackColor = Color.FromArgb(64, 64, 64);
+                listView1.BackColor = Color.FromArgb(64, 64, 64);
+                listView2.BackColor = Color.FromArgb(64, 64, 64);
+                listView1.ForeColor = Color.White; 
+                listView2.ForeColor = Color.White;
+                treeView1.ForeColor = Color.White;
+                _darkModeFlag = true;
+            } else{
+                treeView1.BackColor = Color.White;
+                listView1.BackColor = Color.White;
+                listView2.BackColor = Color.White;
+                listView1.ForeColor = Color.Black; 
+                listView2.ForeColor = Color.Black;
+                treeView1.ForeColor = Color.Black;
+                _darkModeFlag = false;
+            }
+            
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,54 +296,36 @@ namespace FileManagerProgIII
 
         }
 
-        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void listView1_ItemSelectionChanged_1(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            elemSeleccionado = e.Item.Text;
-            FileAttributes caracArch = File.GetAttributes(filePath +"/"+ elemSeleccionado);
+            _elemSeleccionado = e.Item.Text;
+            FileAttributes caracArch = File.GetAttributes(_filePath +"/"+ _elemSeleccionado);
             if ((caracArch & FileAttributes.Directory) == FileAttributes.Directory)
             {
-                esArch = false;
-                pathBox.Text = filePath + "/" + elemSeleccionado;
+                _esArch = false;
+                toolStripTextBox1.Text = _filePath + @"\" + _elemSeleccionado;
+                
             }
             else
             {
-                esArch = true;
+                _esArch = true;
+
             }
         }
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            cargar();
+            Cargar();
         }
 
-        private void backButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string path = pathBox.Text;
-                path = path.Substring(0, path.LastIndexOf("/"));
-                this.esArch = false;
-                pathBox.Text = path;
-            }
-            catch(Exception es)
-            {
 
-            }
-            cargar();
-        }
-                
-
-        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
         {
-            String nombre = "";
-            //FileInfo nuevo = new FileInfo(nombre);
-            Crear ventana = new Crear();
-            ventana.ShowDialog();
+
         }
 
-        private void directorioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void repositorioDelProyectoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
