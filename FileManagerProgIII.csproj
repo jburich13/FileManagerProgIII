@@ -52,12 +52,14 @@
     <Compile Include="Crear.Designer.cs">
       <DependentUpon>Crear.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearDir.cs">
+    <Compile Include="CrearArchivo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearDir.Designer.cs">
-      <DependentUpon>CrearDir.cs</DependentUpon>
+    <Compile Include="CrearArchivo.Designer.cs" />
+    <Compile Include="CrearDirectorio.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CrearDirectorio.Designer.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,9 +71,8 @@
     <EmbeddedResource Include="Crear.resx">
       <DependentUpon>Crear.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrearDir.resx">
-      <DependentUpon>CrearDir.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="CrearArchivo.resx" />
+    <EmbeddedResource Include="CrearDirectorio.resx" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,5 +98,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
